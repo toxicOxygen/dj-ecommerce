@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block head_title %}Login{% endblock head_title %}
-
+{% load widget_tweaks %}
 
 {% block content %}
 
@@ -23,7 +23,7 @@
 				<label class="control-label" for="inputEmail">Email</label>
 				<div class="controls">
 				  {% comment %} <input class="span3"  type="text" placeholder="Email"> {% endcomment %}
-				  {{form.login}}
+				  {% render_field form.login class+="span3" type="email" %}
 				</div>
 			  </div>
 			  <div class="control-group">
