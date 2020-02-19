@@ -2,6 +2,7 @@
 <!-- 
 	Upper Header Section 
 -->
+{% load cart_template_tags %}
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="topNav">
 		<div class="container">
@@ -16,7 +17,7 @@
 				<a href="#"><span class="icon-user"></span> My Account</a> 
 				<a href="register.html"><span class="icon-edit"></span> Free Register </a> 
 				<a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-				<a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+				<a href="{% url 'cart' %}"><span class="icon-shopping-cart"></span> {{user|cart_item_count}} Item(s) - <span class="badge badge-warning"> ${{user|cart_total_price}}</span></a>
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block head_title %}Cart{% endblock head_title %}
+
+{% block content %}
+<div class="row">
+<div class="span12">
+    <ul class="breadcrumb">
+		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li class="active">Check Out</li>
+    </ul>
+	<div class="well well-small">
+		<h1>Check Out <small class="pull-right"> 2 Items are in the cart </small></h1>
+	<hr class="soften">	
+
+	<table class="table table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+				  <th>	Ref. </th>
+                  <th>Avail.</th>
+                  <th>Unit price</th>
+                  <th>Qty </th>
+                  <th>Total</th>
+				</tr>
+              </thead>
+              <tbody>
+			  	{% for order_item in order.items.all %}
+					<tr>
+						<td><img width="100" src="assets/img/e.jpg" alt=""></td>
+						<td>{{order_item.item.title}}<br>Carate : 22<br>Model : n/a</td>
+						<td> - </td>
+						<td><span class="shopBtn"><span class="icon-ok"></span></span> </td>
+						<td>${{order_item.item.price}}</td>
+						<td>
+							<input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text" value="{{order_item.quantity}}">
+							<div class="input-append">
+								<a href="{{order_item.item.get_reduce_quantity_url}}" class="btn btn-mini" type="button">-</a>
+								<a href="{{order_item.item.get_add_to_cart_url}}" class="btn btn-mini" type="button"> + </a>
+								<a href="{{order_item.item.get_remove_from_cart_url}}" class="btn btn-mini btn-danger" type="button"><span class="icon-remove"></span></a>
+							</div>
+							</td>
+						<td>${{order_item.get_order_item_total}}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+            </table><br>
+		
+		
+            <table class="table table-bordered">
+			<tbody>
+				 <tr>
+                  <td> 
+				<form class="form-inline">
+				  <label style="min-width:159px"> VOUCHERS Code: </label> 
+				<input type="text" class="input-medium" placeholder="CODE">
+				<button type="submit" class="shopBtn"> ADD</button>
+				</form>
+				</td>
+                </tr>
+				
+			</tbody>
+				</table>
+			<table class="table table-bordered">
+			<tbody>
+                <tr><td>ESTIMATE YOUR SHIPPING &amp; TAXES</td></tr>
+                 <tr> 
+				 <td>
+					<form class="form-horizontal">
+					  <div class="control-group">
+						<label class="span2 control-label" for="inputEmail">Country</label>
+						<div class="controls">
+						  <input type="text" placeholder="Country">
+						</div>
+					  </div>
+					  <div class="control-group">
+						<label class="span2 control-label" for="inputPassword">Post Code/ Zipcode</label>
+						<div class="controls">
+						  <input type="password" placeholder="Password">
+						</div>
+					  </div>
+					  <div class="control-group">
+						<div class="controls">
+						  <button type="submit" class="shopBtn">Click to check the price</button>
+						</div>
+					  </div>
+					</form> 
+				  </td>
+				  </tr>
+              </tbody>
+            </table>		
+	<a href="products.html" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
+	<a href="login.html" class="shopBtn btn-large pull-right">Next <span class="icon-arrow-right"></span></a>
+
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -29,14 +29,8 @@
 
     {% include "header.html" %}
 
-    <div class="row">
-        {% include "sidebar.html" %}
-
-        <div class="span9">
-            {% block content %}
-            {% endblock content %}
-        </div>
-    </div>
+    {% block content %}
+    {% endblock content %}
     
 
     {% include "footer.html" %}

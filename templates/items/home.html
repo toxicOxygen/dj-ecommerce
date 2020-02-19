@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block content %}
-	<div class="well np">
+    <div class="row">
+        {% include "sidebar.html" %}
+
+        <div class="span9">
+            	<div class="well np">
 		<div id="myCarousel" class="carousel slide homCar">
             <div class="carousel-inner">
 			  <div class="item">
@@ -72,7 +76,7 @@
                             <li class="span3">
                                 <div class="thumbnail">
                                     <a class="zoomTool" href="{{items.6.get_absolute_url}}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                    <a  href="product_details.html"><img src="{{items.6.image.url}}" alt=""></a>
+                                    <a  href="{{items.6.get_absolute_url}}"><img src="{{items.6.image.url}}" alt=""></a>
                                 </div>
                             </li>
                         </ul>
@@ -119,7 +123,7 @@
                         <div class="caption cntr">
                             <p>{{items.1.title}}</p>
                             <p><strong>${{items.1.price}}</strong></p>
-                            <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                            <h4><a class="shopBtn" href="{{items.1.get_add_to_cart_url}}" title="add to cart"> Add to cart </a></h4>
                             <div class="actionList">
                                 <a class="pull-left" href="#">Add to Wish List </a> 
                                 <a class="pull-left" href="#"> Add to Compare </a>
@@ -135,7 +139,7 @@
                         <div class="caption cntr">
                             <p>{{items.2.title}}</p>
                             <p><strong> ${{items.2.price}}</strong></p>
-                            <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                            <h4><a class="shopBtn" href="{{items.2.get_add_to_cart_url}}" title="add to cart"> Add to cart </a></h4>
                             <div class="actionList">
                                 <a class="pull-left" href="#">Add to Wish List </a> 
                                 <a class="pull-left" href="#"> Add to Compare </a>
@@ -151,7 +155,7 @@
                         <div class="caption cntr">
                             <p>{{items.3.title}}</p>
                             <p><strong> ${{items.3.price}}</strong></p>
-                            <h4><a class="shopBtn" href="#" title="add to cart"> Add to cart </a></h4>
+                            <h4><a class="shopBtn" href="{{items.3.get_add_to_cart_url}}" title="add to cart"> Add to cart </a></h4>
                             <div class="actionList">
                                 <a class="pull-left" href="#">Add to Wish List </a> 
                                 <a class="pull-left" href="#"> Add to Compare </a>
@@ -163,4 +167,7 @@
             </ul>
         </div>
     </div>
+        </div>
+    </div>
+
 {% endblock content %}

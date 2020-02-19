@@ -29,3 +29,12 @@ class Item(models.Model):
     
     def get_absolute_url(self):
         return reverse('product-detail',args=[str(self.pk),])
+    
+    def get_add_to_cart_url(self):
+        return reverse('add_to_cart',args=[str(self.pk),])
+    
+    def get_remove_from_cart_url(self):
+        return reverse('remove_from_cart',args=[str(self.pk),])
+
+    def get_reduce_quantity_url(self):
+        return reverse('remove_quantity',args=[str(self.pk),])
